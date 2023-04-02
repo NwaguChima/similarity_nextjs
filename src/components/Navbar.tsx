@@ -1,6 +1,7 @@
 import { getServerSession } from 'next-auth';
 import Link from 'next/link';
 import React from 'react';
+import { buttonVariants } from './ui/Button';
 
 interface NavbarProps {}
 
@@ -13,7 +14,7 @@ const Navbar = async ({}) => {
         <Link
           href="/"
           className={buttonVariants({
-            variants: 'link',
+            variant: 'link',
           })}
         >
           Text Similarity 1.0
@@ -28,7 +29,7 @@ const Navbar = async ({}) => {
           <Link
             href="/documentation"
             className={buttonVariants({
-              variants: 'ghost',
+              variant: 'ghost',
             })}
           >
             Documentation
@@ -38,7 +39,7 @@ const Navbar = async ({}) => {
             <>
               <Link
                 className={buttonVariants({
-                  variants: 'ghost',
+                  variant: 'ghost',
                 })}
                 href="/dashboard"
               >
