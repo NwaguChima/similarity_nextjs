@@ -16,7 +16,14 @@ export default function RootLayout({
       className={cn('bg-white text-slate-900 antialiased', inter.className)}
     >
       <body className="min-h-screen bg-slate-50 dark:bg-slate-900 antialiased">
-        <Providers>{children}</Providers>
+        <Providers>
+          {children}
+
+          <Navbar />
+        </Providers>
+
+        {/* Allow for more height on mobile devices */}
+        <div className="h-40 md:hidden" />
       </body>
     </html>
   );
