@@ -1,3 +1,4 @@
+import Navbar from '@/components/Navbar';
 import Providers from '@/components/Providers';
 import { cn } from '@/lib/utils';
 import '@/styles/globals.css';
@@ -19,6 +20,7 @@ export default function RootLayout({
         <Providers>
           {children}
 
+          {/* @ts-expect-error Server Component */}
           <Navbar />
         </Providers>
 
