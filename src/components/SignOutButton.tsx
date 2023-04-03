@@ -2,7 +2,7 @@
 
 import { signIn, signOut } from 'next-auth/react';
 import React, { useState } from 'react';
-import Button from './ui/Button';
+import Button from '@/ui/Button';
 
 interface SignOutButtonProps {}
 
