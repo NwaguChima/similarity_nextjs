@@ -1,5 +1,6 @@
 import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/ui/Tabs';
+import Code from '@/components/Code';
 
 interface DocumentationTabsProps {}
 
@@ -11,7 +12,7 @@ const DocumentationTabs: React.FC<DocumentationTabsProps> = ({}) => {
         <TabsTrigger value="python">Python</TabsTrigger>
       </TabsList>
       <TabsContent value="nodejs">
-        <Code />
+        <Code language="javascript" />
       </TabsContent>
       <TabsContent value="python"></TabsContent>
     </Tabs>
