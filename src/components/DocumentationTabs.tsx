@@ -1,10 +1,12 @@
-import React from 'react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/ui/Tabs';
+'use client';
+
+import { nodejs, python } from '@/helpers/documentation-code';
+import { FC } from 'react';
+import SimpleBar from 'simplebar-react';
 import Code from '@/components/Code';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/Tabs';
 
-interface DocumentationTabsProps {}
-
-const DocumentationTabs: React.FC<DocumentationTabsProps> = ({}) => {
+const DocumentationTabs: FC = () => {
   return (
     <Tabs defaultValue="nodejs" className="max-w-2xl w-full">
       <TabsList>
@@ -12,9 +14,15 @@ const DocumentationTabs: React.FC<DocumentationTabsProps> = ({}) => {
         <TabsTrigger value="python">Python</TabsTrigger>
       </TabsList>
       <TabsContent value="nodejs">
-        <Code language="javascript" />
+        <SimpleBar forceVisible="y">
+          <Code animated code={nodejs} language="javascript" show />
+        </SimpleBar>
       </TabsContent>
-      <TabsContent value="python"></TabsContent>
+      <TabsContent value="python">
+        <SimpleBar forceVisible="y">
+          <Code animated code={python} language="python" show />
+        </SimpleBar>
+      </TabsContent>
     </Tabs>
   );
 };
