@@ -5,7 +5,8 @@ import React, { FormEvent, useState } from 'react';
 import { toast } from './ui/Toast';
 import LargeHeading from '@/ui/LargeHeading';
 import Paragraph from '@/ui/Paragraph';
-import CopyButton from './CopyButton';
+import CopyButton from '@/components/CopyButton';
+import { Input } from '@/ui/Input';
 
 const RequestApiKey: React.FC = ({}) => {
   const [isCreating, setIsCreating] = useState<boolean>(false);
@@ -60,6 +61,11 @@ const RequestApiKey: React.FC = ({}) => {
               className="absolute inset-y-0 right-0 animate-in fade-in duration-300"
             />
           ) : null}
+          <Input
+            readOnly
+            value={apiKey ?? ''}
+            placeholder="Request your API key to display it here"
+          />
         </div>
       </form>
     </div>
