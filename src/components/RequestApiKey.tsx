@@ -1,4 +1,5 @@
 'use client';
+import { createApiKey } from '@/helpers/create-api-key';
 import React, { FormEvent, useState } from 'react';
 import { toast } from './ui/Toast';
 
@@ -11,7 +12,7 @@ const RequestApiKey: React.FC = ({}) => {
 
     setIsCreating(true);
     try {
-      const generatedApiKey = await createNewApiKey();
+      const generatedApiKey = await createApiKey();
       setApiKey(generatedApiKey);
     } catch (error) {
       if (error instanceof Error) {
