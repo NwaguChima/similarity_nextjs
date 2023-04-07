@@ -7,6 +7,7 @@ import LargeHeading from '@/ui/LargeHeading';
 import Paragraph from '@/ui/Paragraph';
 import CopyButton from '@/components/CopyButton';
 import { Input } from '@/ui/Input';
+import Button from './ui/Button';
 
 const RequestApiKey: React.FC = ({}) => {
   const [isCreating, setIsCreating] = useState<boolean>(false);
@@ -66,6 +67,12 @@ const RequestApiKey: React.FC = ({}) => {
             value={apiKey ?? ''}
             placeholder="Request your API key to display it here"
           />
+        </div>
+
+        <div className="mt-3 sm:mt-0 sm:ml-4 sm:flex-shrink-0">
+          <Button disabled={!!apiKey} isLoading={isCreating}>
+            Request API key
+          </Button>
         </div>
       </form>
     </div>
