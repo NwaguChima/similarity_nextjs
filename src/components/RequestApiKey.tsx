@@ -69,7 +69,7 @@ const RequestApiKey: React.FC = ({}) => {
           />
         </div>
 
-        <div className="mt-3 sm:mt-0 sm:ml-4 sm:flex-shrink-0">
+        <div className="mt-3 flex justify-center sm:mt-0 sm:ml-4 sm:flex-shrink-0">
           <Button disabled={!!apiKey} isLoading={isCreating}>
             Request API key
           </Button>
