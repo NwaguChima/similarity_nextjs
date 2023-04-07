@@ -5,6 +5,7 @@ import React, { FormEvent, useState } from 'react';
 import { toast } from './ui/Toast';
 import LargeHeading from '@/ui/LargeHeading';
 import Paragraph from '@/ui/Paragraph';
+import CopyButton from './CopyButton';
 
 const RequestApiKey: React.FC = ({}) => {
   const [isCreating, setIsCreating] = useState<boolean>(false);
@@ -52,11 +53,13 @@ const RequestApiKey: React.FC = ({}) => {
         onSubmit={createNewApiKey}
       >
         <div className="relative rounded-md shadow-sm sm:min-w-0 sm:flex-1">
-            {
-                apiKey ? (
-                    <CopyButton className='absolute inset-y-0 right-0 animate-in fade-in duration-300'
-                ) : null
-            }
+          {apiKey ? (
+            <CopyButton
+              type="button"
+              valueToCopy={apiKey}
+              className="absolute inset-y-0 right-0 animate-in fade-in duration-300"
+            />
+          ) : null}
         </div>
       </form>
     </div>
