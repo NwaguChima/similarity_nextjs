@@ -1,8 +1,6 @@
 import React from 'react';
 
-interface ApiDashboardProps {}
-
-const ApiDashboard: React.FC<ApiDashboardProps> = ({}) => {
+const ApiDashboard = async () => {
   return <div>ApiDashboard</div>;
 };
 
