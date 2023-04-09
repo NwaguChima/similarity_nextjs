@@ -16,7 +16,6 @@ export const metadata: Metadata = {
 const page = async () => {
   const user = await getServerSession(authOptions);
 
-  // temporary fix for auth issue
   // if (!user) return notFound();
 
   const apikey = await db.apikey.findFirst({
@@ -25,6 +24,7 @@ const page = async () => {
       enabled: true,
     },
   });
+
   return (
     <div className="max-w-7xl mx-auto mt-16">
       {apikey ? <ApiDashboard /> : <RequestApiKey />}
