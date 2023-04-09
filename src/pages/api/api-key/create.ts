@@ -4,6 +4,7 @@ import { CreateApiData } from '@/types/api';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { getServerSession } from 'next-auth';
 import { nanoid } from 'nanoid';
+import { z } from 'zod';
 
 const handler = async (
   req: NextApiRequest,
@@ -37,11 +38,28 @@ const handler = async (
 
     const createdApiKey = await db.apikey.create({
       data: {
-        userId: user.id,
+        userId: user?.id!,
         key: nanoid(32),
       },
     });
-  } catch (error) {}
+
+    res.status(200).json({
+      error: null,
+      createdApiKey,
+    });
+  } catch (error) {
+    if (error instanceof z.ZodError) {
+      return res.status(400).json({
+        error: error.issues,
+        createdApiKey: null,
+      });
+    }
+
+    res.status(500).json({
+      error: 'Internal server error.',
+      createdApiKey: null,
+    });
+  }
 };
 
 export default handler;

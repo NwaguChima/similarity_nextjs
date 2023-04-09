@@ -51,6 +51,7 @@ model User {
   apiKeyId      String?
 }
 
+
 model Apikey {
   id String @id @default(cuid())
   key String @unique
