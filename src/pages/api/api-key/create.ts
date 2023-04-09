@@ -3,6 +3,7 @@ import { db } from '@/lib/db';
 import { CreateApiData } from '@/types/api';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { getServerSession } from 'next-auth';
+import { nanoid } from 'nanoid';
 
 const handler = async (
   req: NextApiRequest,
@@ -33,6 +34,13 @@ const handler = async (
         createdApiKey: null,
       });
     }
+
+    const createdApiKey = await db.apikey.create({
+      data: {
+        userId: user.id,
+        key: nanoid(32),
+      },
+    });
   } catch (error) {}
 };
 
