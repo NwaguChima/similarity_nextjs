@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Tailwind reset styles */
 
 .dark .three-d {
   text-shadow: 0px 5px 0px #533519;
