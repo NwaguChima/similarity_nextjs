@@ -27,6 +27,7 @@ const ApiKeyOptions: FC<ApiKeyOptionsProps> = ({ apiKeyKey }) => {
 
   const createNewApiKey = async () => {
     setIsCreatingNew(true);
+
     try {
       await revokeApiKey();
       await createApiKey();
