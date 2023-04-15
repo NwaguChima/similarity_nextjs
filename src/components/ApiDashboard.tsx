@@ -7,6 +7,7 @@ import { formatDistance } from 'date-fns';
 import LargeHeading from './ui/LargeHeading';
 import Paragraph from './ui/Paragraph';
 import { Input } from './ui/Input';
+import Table from './Table';
 
 // main dashboard page
 const ApiDashboard = async () => {
@@ -50,7 +51,7 @@ const ApiDashboard = async () => {
         Your API history:
       </Paragraph>
 
-      <Table userRequests={serializableRequests} />
+      <Table userRequests={serializedRequests} />
     </div>
   );
 };
