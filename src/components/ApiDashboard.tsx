@@ -8,6 +8,7 @@ import LargeHeading from './ui/LargeHeading';
 import Paragraph from './ui/Paragraph';
 import { Input } from './ui/Input';
 import Table from './Table';
+import ApiKeyOptions from './ApiKeyOptions';
 
 // main dashboard page
 const ApiDashboard = async () => {

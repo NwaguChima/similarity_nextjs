@@ -12,8 +12,8 @@ import { revokeApiKey } from '@/helpers/revoke-api-key';
 import { Loader2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { FC, useState } from 'react';
-import { Button } from './ui/Button';
-import { toast } from './ui/toast';
+import Button from '@/components/ui/Button';
+import { toast } from '@/components/ui/Toast';
 
 interface ApiKeyOptionsProps {
   // passing of entire object not allowed due to date property not being serializable
@@ -29,7 +29,7 @@ const ApiKeyOptions: FC<ApiKeyOptionsProps> = ({ apiKeyKey }) => {
     setIsCreatingNew(true);
 
     try {
-      await revokeApiKey();
+      await revokeApiKey({ keyId: apiKeyKey });
       await createApiKey();
       router.refresh();
     } catch (error) {
@@ -46,7 +46,7 @@ const ApiKeyOptions: FC<ApiKeyOptionsProps> = ({ apiKeyKey }) => {
   const revokeCurrentApiKey = async () => {
     setIsRevoking(true);
     try {
-      await revokeApiKey();
+      await revokeApiKey({ keyId: apiKeyKey });
       router.refresh();
     } catch (error) {
       toast({
