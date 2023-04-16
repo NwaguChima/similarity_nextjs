@@ -6,6 +6,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { getServerSession } from 'next-auth';
 import { z } from 'zod';
 
+// revoke handler
 const handler = async (
   req: NextApiRequest,
   res: NextApiResponse<RevokeApiData>
