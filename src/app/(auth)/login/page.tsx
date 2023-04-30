@@ -6,7 +6,6 @@ import UserAuthForm from '@/components/UserAuthForm';
 import Link from 'next/link';
 import { FC } from 'react';
 
-// Login
 const page: FC = () => {
   return (
     <>
