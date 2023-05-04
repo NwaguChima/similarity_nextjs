@@ -6,6 +6,7 @@ import UserAuthForm from '@/components/UserAuthForm';
 import Link from 'next/link';
 import { FC } from 'react';
 
+// more comments here for page marking
 const page: FC = () => {
   return (
     <>
