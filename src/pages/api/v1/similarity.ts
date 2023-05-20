@@ -14,7 +14,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const body = req.body as unknown;
 
   const apiKey = req.headers.authorization;
-
   if (!apiKey) {
     return res.status(401).json({ error: 'Unauthorized' });
   }
@@ -38,8 +37,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const embeddings = await Promise.all(
       [text1, text2].map(async (text) => {
         const res = await openai.createEmbedding({
+          input: 'Your text string goes here',
           model: 'text-embedding-ada-002',
-          input: text,
         });
 
         return res.data.data[0].embedding;
@@ -50,7 +49,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     const duration = new Date().getTime() - start.getTime();
 
-    // persist request
+    // Persist request
     await db.apiRequest.create({
       data: {
         duration,
@@ -68,7 +67,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       return res.status(400).json({ error: error.issues });
     }
 
-    return res.status(500).json({ error: 'Internal Server Error' });
+    console.log('error==============>', JSON.stringify(error, null, 2));
+    return res.status(500).json({ error: 'Internal server error' });
   }
 };
 

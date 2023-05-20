@@ -5,13 +5,12 @@ import { Ratelimit } from '@upstash/ratelimit';
 import { Redis } from '@upstash/redis';
 
 const redis = new Redis({
-  //@ts-ignore
-  url: process.env.REDIS_URL,
-  token: process.env.REDIS_SECRET,
+  url: process.env.REDIS_URL as string,
+  token: process.env.REDIS_SECRET as string,
 });
 
 const ratelimit = new Ratelimit({
-  redis: redis,
+  redis,
   limiter: Ratelimit.slidingWindow(50, '1 h'),
 });
 
