@@ -22,7 +22,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { text1, text2 } = reqSchema.parse(body);
 
-    const validApiKey = await db.apikey.findFirst({
+    const validApiKey = await db.apiKey.findFirst({
       where: {
         key: apiKey,
         enabled: true,
@@ -58,7 +58,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         path: req.url as string,
         status: 200,
         apiKeyId: validApiKey.id,
-        usedApikey: validApiKey.key,
+        usedApiKey: validApiKey.key,
       },
     });
 

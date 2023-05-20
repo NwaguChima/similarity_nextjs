@@ -19,7 +19,7 @@ const handler = async (
       return res.status(401).json({ error: 'Unauthorized', success: false });
     }
 
-    const existingApiKey = await db.apikey.findFirst({
+    const existingApiKey = await db.apiKey.findFirst({
       where: { userId: user.id, enabled: true },
     });
 
@@ -30,7 +30,7 @@ const handler = async (
     }
 
     // invalidate API key
-    await db.apikey.update({
+    await db.apiKey.update({
       where: { id: existingApiKey.id },
       data: {
         enabled: false,
