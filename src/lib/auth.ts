@@ -68,8 +68,8 @@ export const authOptions: NextAuthOptions = {
       };
     },
 
-    redirect() {
-      return '/dashboard';
+    redirect({ baseUrl, url }) {
+      return baseUrl + '/dashboard';
     },
   },
 };
