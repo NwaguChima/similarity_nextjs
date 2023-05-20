@@ -2,11 +2,13 @@
 import { useTheme } from 'next-themes';
 import React from 'react';
 import Button from '@/ui/Button';
-import { DropdownMenuTrigger } from '@radix-ui/react-dropdown-menu';
-import MenuComponent from './ui/DropdownMenu';
 import Icons from './Icons';
-
-const { DropdownMenu, DropdownMenuContent, DropdownMenuItem } = MenuComponent;
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/DropdownMenu';
 
 interface ThemeToggleProps {}
 
