@@ -1,14 +1,14 @@
 'use client';
 import { useTheme } from 'next-themes';
 import React from 'react';
+import Button from '@/ui/Button';
+import { DropdownMenuTrigger } from '@radix-ui/react-dropdown-menu';
+import Icons from './Icons';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-} from '@/ui/DropdownMenu';
-import Button from '@/ui/Button';
-import { DropdownMenuTrigger } from '@radix-ui/react-dropdown-menu';
-import Icons from './Icons';
+} from './ui/DropdownMenu';
 
 interface ThemeToggleProps {}
 
