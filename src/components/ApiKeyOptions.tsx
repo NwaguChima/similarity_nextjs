@@ -1,12 +1,5 @@
 'use client';
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/DropdownMenu';
 import { createApiKey } from '@/helpers/create-api-key';
 import { revokeApiKey } from '@/helpers/revoke-api-key';
 import { Loader2 } from 'lucide-react';
@@ -14,6 +7,13 @@ import { useRouter } from 'next/navigation';
 import { FC, useState } from 'react';
 import Button from '@/components/ui/Button';
 import { toast } from '@/components/ui/Toast';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from './ui/DropdownMenu';
 
 interface ApiKeyOptionsProps {
   // passing of entire object not allowed due to date property not being serializable
