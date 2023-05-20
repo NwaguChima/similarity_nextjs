@@ -23,7 +23,7 @@ const handler = async (
       });
     }
 
-    const existingApiKey = await db.apikey.findFirst({
+    const existingApiKey = await db.apiKey.findFirst({
       where: {
         userId: user?.id,
         enabled: true,
@@ -37,7 +37,7 @@ const handler = async (
       });
     }
 
-    const createdApiKey = await db.apikey.create({
+    const createdApiKey = await db.apiKey.create({
       data: {
         userId: user?.id!,
         key: nanoid(32),
