@@ -7,13 +7,15 @@ import { useRouter } from 'next/navigation';
 import { FC, useState } from 'react';
 import Button from '@/components/ui/Button';
 import { toast } from '@/components/ui/Toast';
-import {
+import MenuComponent from './ui/DropdownMenu';
+
+const {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from './ui/DropdownMenu';
+} = MenuComponent;
 
 interface ApiKeyOptionsProps {
   // passing of entire object not allowed due to date property not being serializable
