@@ -16,15 +16,15 @@ const ApiDashboard = async () => {
 
   if (!user) notFound();
 
-  const apiKeys = await db.apikey.findMany({
+  const apiKeys = await db.apiKey.findMany({
     where: {
       userId: user.user.id,
     },
   });
 
-  const activeApiKeys = apiKeys.find((key) => key.enabled);
+  const activeApiKey = apiKeys.find((key) => key.enabled);
 
-  if (!activeApiKeys) notFound();
+  if (!activeApiKey) notFound();
 
   const userRequests = await db.apiRequest.findMany({
     where: {
@@ -44,8 +44,11 @@ const ApiDashboard = async () => {
       <LargeHeading>Welcome back, {user.user.name}</LargeHeading>
       <div className="flex flex-col md:flex-row gap-4 justify-center md:justify-start items-center">
         <Paragraph>Your API key:</Paragraph>
-        <Input className="w-fit truncate" readOnly value={activeApiKeys.key} />
-        <ApiKeyOptions apiKeyKey={activeApiKeys.key} />
+        <Input className="w-fit truncate" readOnly value={activeApiKey.key} />
+        <ApiKeyOptions
+          apiKeyKey={activeApiKey.key}
+          apiKeyId={activeApiKey.id}
+        />
       </div>
 
       <Paragraph className="text-center md:text-left mt-4 -mb-4">

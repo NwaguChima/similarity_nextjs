@@ -60,7 +60,7 @@ const Table: FC<TableProps> = ({ userRequests }) => {
 
   const rows = userRequests.map((request) => ({
     id: request.id,
-    col1: request.usedApikey,
+    col1: request.usedApiKey,
     col2: request.path,
     col3: `${request.timestamp} ago`,
     col4: `${request.duration} ms`,
