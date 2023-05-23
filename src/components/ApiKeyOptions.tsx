@@ -13,7 +13,7 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/DropdownMenu';
+} from '../components/ui/DropdownMenu';
 interface ApiKeyOptionsProps {
   // passing of entire object not allowed due to date property not being serializable
   apiKeyKey: string;
