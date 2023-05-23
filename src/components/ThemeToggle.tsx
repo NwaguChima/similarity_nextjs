@@ -17,7 +17,7 @@ export function ThemeToggle() {
 
   return (
     <div>
-      <DropdownMenu>
+      {/* <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" size="sm">
             <Icons.Sun className="rotate-0 scale-100 transition-all hover:text-slate-900 dark:-rotate-90 dark:scale-0 dark:text-slate-400 dark:hover:text-slate-100" />
@@ -39,7 +39,8 @@ export function ThemeToggle() {
             <span>System</span>
           </DropdownMenuItem>
         </DropdownMenuContent>
-      </DropdownMenu>
+      </DropdownMenu> */}
+      <p>Hell test</p>
     </div>
   );
 }
